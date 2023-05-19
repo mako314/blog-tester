@@ -1,7 +1,8 @@
+// Lets say we want to search a database of books, accounting for both the title and author of the book, and append the search result to a div we've created in the HTML.
 // This is where we'll globally scope some variables we'll be using. Try to remember this for the futre (hint for when we reset our forms content)
 
-
 const searchBar = document.querySelector("#search-form") //We set our searchBar variable to grab the html element with an id of "search-form"
+const appendToMe = document.querySelector("#appendMe")
 
 //console.log(searchBar) // We console log EVERYTHING. This is the SAFEST way to ensure you're going down the right path.
 
@@ -34,10 +35,8 @@ searchBar.addEventListener("submit", (e) => {   //  You use this addEventListene
         if (filteredBooks.length === 0){
           alert("Sorry, but we currently do not have this book available.") //just something to output if nothing matches the search
         } else {
-          filteredBooks.forEach(book  => {
-    //After filtering through the books and seeing if  what is inputted into the searchInquiry matches what we have in our database (using include you can test for shorter answers.) 
-          postSearchData(book) 
-    //Change this in the blog because it's posting to something. We could just make a simple function that adds the results to an html div
+          filteredBooks.forEach(book  => { //After filtering through the books and seeing if  what is inputted into the searchInquiry matches what we have in our database (using include you can test for shorter answers.) 
+          postSearchData(book) //Every time you submit, this function is ran, with the data that is being checked for above. 
           })    
       }
         searchBar.reset() //Since our searchBar variable is globally scoped, we can also call it here. .reset() simply resets the form after you submit.
@@ -46,7 +45,9 @@ searchBar.addEventListener("submit", (e) => {   //  You use this addEventListene
     function postSearchData(book){
         console.log(book)
 
-        //let postedResults = document.createElement("ul")
+        let postedResults = document.createElement("ul")
 
-        //postedResults.textContent = book
+        postedResults.textContent = book.title
+
+        appendToMe.appendChild(postedResults)
     }
