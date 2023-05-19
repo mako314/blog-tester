@@ -1,8 +1,9 @@
 // Lets say we want to search a database of books, accounting for both the title and author of the book, and append the search result to a div we've created in the HTML.
+
 // This is where we'll globally scope some variables we'll be using. Try to remember this for the futre (hint for when we reset our forms content)
 
-const searchBar = document.querySelector("#search-form") //We set our searchBar variable to grab the html element with an id of "search-form"
-const appendToMe = document.querySelector("#appendMe")
+let searchBar = document.querySelector("#search-form") //We set our searchBar variable to grab the html element with an id of "search-form"
+let appendToMe = document.querySelector("#appendMe") //We set our appendToMe variable to grab the html element with an id of "appendMe"
 
 //console.log(searchBar) // We console log EVERYTHING. This is the SAFEST way to ensure you're going down the right path.
 
